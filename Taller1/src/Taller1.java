@@ -1,5 +1,5 @@
 
-public class Ejercicio1 {
+public class Taller01 {
 	
     public static Character retornarPrimeraLetra(String cadena) {
         if (cadena.isEmpty()) {
