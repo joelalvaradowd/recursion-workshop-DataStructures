@@ -13,22 +13,24 @@ public class Taller1 {
         }
     }
 
-// El stringBuilder trabaja sobre la misma cadena y es más eficiente
-    public static String replaceOA(String cadena, int n) {
-        StringBuilder sb = new StringBuilder(cadena);
-        if (n == 0) {
-            return cadena;
-        }
-        if (cadena.isEmpty()) {
-            return "";
-        } else {
-            StringBuilder inicio = new StringBuilder(sb.substring(0, 1));            
-            if (inicio.toString().equals("o")) {                
-                return  new StringBuilder("a").append(replaceOA(cadena.substring(1), n - 1)).toString();
-            } else {
-                return inicio.append(replaceOA(cadena.substring(1), n)).toString();
-            }
-        }
-    }    
+// El metodo replace ocupa O(1) en este caso, ya que solo reemplazo un caracter
+    public static String replaceOA(String cadena, int n) {        
+        return replace(new StringBuilder(cadena), n, 0).toString();
+    }
+    
+    private static StringBuilder replace(StringBuilder cadena, int n, int indice) {          
+    	if(indice>=cadena.length() || n==0) {    		
+    		return cadena;    		
+    	}
+        if(cadena.charAt(indice)=='o') {      		
+    		cadena.replace(indice, indice+1, "a");
+    		return replace(cadena, n-1, indice+1);       		
+    	}else if(cadena.charAt(indice)=='O') {    		
+    		cadena.replace(indice, indice+1, "A");
+    		return replace(cadena, n-1, indice+1);     		
+    	}else{
+            return replace(cadena, n, indice+1);
+        }    	
+    }
 }
     
