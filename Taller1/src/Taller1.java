@@ -1,16 +1,19 @@
 
 public class Taller1 {
-	
-    public static Character retornarPrimeraLetra(String cadena) {
-        if (cadena.isEmpty()) {
-            return null;
-        } else {
-            if (Character.isUpperCase(cadena.charAt(0))) {
-                return cadena.charAt(0);
-            } else {
-                return retornarPrimeraLetra(cadena.substring(1, cadena.length()));
-            }
+	public static Character retornarPrimeraLetra(String cadena) {        
+        return retornar(new StringBuilder(cadena),0);
+    }
+    
+    private static Character retornar(StringBuilder sb, int indice) {          
+    	if(indice>=sb.length()) {    		
+    		return null;    		
+    	}
+        if(Character.isUpperCase(sb.charAt(indice))) {      		
+            return sb.charAt(indice);
         }
+        else{
+            return retornar(sb, indice+1);
+        }    	
     }
 
 // El metodo replace ocupa O(1) en este caso, ya que solo reemplazo un caracter
