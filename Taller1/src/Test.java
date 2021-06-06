@@ -1,4 +1,4 @@
-import jdk.javadoc.internal.doclets.formats.html.SourceToHTMLConverter;
+//import jdk.javadoc.internal.doclets.formats.html.SourceToHTMLConverter;
 
 public class Test {
     public static void main(String[] args) {
@@ -14,6 +14,7 @@ public class Test {
         System.out.println(Taller1.replaceOA("Buenos dias a todos!", 5));
         System.out.println(Taller1.replaceOA("ee", 5));
         System.out.println(Taller1.replaceOA("Buenos dias a todos!", 2));
+        System.out.println(Taller1.replaceOA("Angel Guale", 3));
     }
 
 }
